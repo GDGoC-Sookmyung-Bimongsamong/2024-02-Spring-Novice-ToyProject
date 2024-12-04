@@ -59,12 +59,13 @@ public class OAuthAttributes {
     }
 
     //
-    public User toEntity(){
+    public User toEntity(String registrationId){
         return User.builder()
                 .name(name)
                 .email(email)
                 .picture(picture)
                 .role(Role.GUEST)
+                .registrationId(registrationId)
                 .build();
     }
 }

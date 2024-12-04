@@ -24,7 +24,12 @@ public class MyPageService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("사용자가 없습니다."));
 
-        List<Posts> posts = postsRepository.findByAuthorIdOrderByCreatedDateDesc(user.getId());
+        System.out.println("User ID: " + user.getId());
+
+        List<Posts> posts = postsRepository.findByUserIdOrderByCreatedDateDesc(user.getId());
+
+        System.out.println("Found posts: " + posts.size());
+
         List<MyPagePostsDto> postsDto = posts.stream()
                 .map(MyPagePostsDto::new)
                 .collect(Collectors.toList());

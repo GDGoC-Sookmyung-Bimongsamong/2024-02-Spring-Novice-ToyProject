@@ -5,6 +5,9 @@ import com.jojoldu.book.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Map;
 
 @Getter
@@ -68,4 +71,5 @@ public class OAuthAttributes {
                 .registrationId(registrationId)
                 .build();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.jojoldu.book.springboot.domain.mypage;
+package com.jojoldu.book.springboot.domain.mypage.dto;
 
 import com.jojoldu.book.springboot.domain.mypage.dto.MyPagePostsDto;
 import lombok.Getter;

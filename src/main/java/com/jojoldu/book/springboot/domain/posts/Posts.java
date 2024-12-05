@@ -1,6 +1,7 @@
 package com.jojoldu.book.springboot.domain.posts;
 
 import com.jojoldu.book.springboot.domain.BaseTimeEntity;
+import com.jojoldu.book.springboot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Posts extends BaseTimeEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,13 +23,17 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private User user;  // author를 user로 변경
+
     @Builder
-    public Posts(String title, String content, String author){
+    public Posts(String title, String content, String author, User user){
         this.title = title;
         this.content = content;
-        this. author = author;
+        this.author = author;
+        this.user = user;
     }
-
     public void update(String title, String content){
         this.title = title;
         this.content = content;

@@ -1,0 +1,30 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="user-profile my-5">
+        <h3>{{myPageInfo.name}}</h3>
+        <p>로그인 경로: {{myPageInfo.registrationId}}</p>
+    </div>
+
+    <div class="my-posts">
+        <h4>내가 작성한 글</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#myPageInfo.posts}}
+                <tr>
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+                    <td>{{createdDate}}</td>
+                </tr>
+            {{/myPageInfo.posts}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{>layout/footer}}

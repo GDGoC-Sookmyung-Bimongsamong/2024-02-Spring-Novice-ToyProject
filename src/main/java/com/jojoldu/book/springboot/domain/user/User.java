@@ -26,16 +26,22 @@ public class User extends BaseTimeEntity {
     @Column
     private String picture;
 
+    // 로그인 경로
+    @Column
+    private String registrationId;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
+    // 생성자에 로그인 경로 추가
     @Builder
-    public User(String name, String email, String picture, Role role){
+    public User(String name, String email, String picture, Role role, String registrationId){
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.role = role;
+        this.registrationId = registrationId;
     }
 
     public User update(String name, String picure){
